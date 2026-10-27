@@ -44,8 +44,8 @@ Designed out-of-the-box for machine learning, multi-task foundation models, pedo
 | :--- | :--- | ---: | ---: | :--- | :--- |
 | **`soil_properties_conus`** | Topsoil Physics & Chemistry (`0–30 cm`) | 50,116 | 46,764 | 15 soil properties (Texture, pH, OC, TC, TN, C:N, CEC, Bulk Density, Water Retention, Aggregate Stability) | `data/parquet/soil_properties_conus.parquet` |
 | **`microbe_enzymes_harmonized`** | Microbial Functional Genomics | 805 | 805 | Scaled (`0–1`) C-, N-, and P-degrading enzyme gene abundance | `data/parquet/microbe_enzymes_harmonized.parquet` |
-| **`root_biomass_harmonized`** | Plant Root Traits (FRED) | 256 | 173 | Mean belowground biomass (`g m-2`) | `data/parquet/root_biomass_harmonized.parquet` |
-| **`root_depth_harmonized`** | Plant Root Traits (FRED) | 1,062 | 596 | Mean rooting depth (`m` and `cm`) | `data/parquet/root_depth_harmonized.parquet` |
+| **`root_biomass_harmonized`** | Plant Root Traits (FRED+TRY) | 256 | 173 | Mean belowground biomass (`g m-2`) | `data/parquet/root_biomass_harmonized.parquet` |
+| **`root_depth_harmonized`** | Plant Root Traits (FRED+TRY) | 1,062 | 596 | Mean rooting depth (`m` and `cm`) | `data/parquet/root_depth_harmonized.parquet` |
 
 > **Full Schema & Datasheet**: See [`data/metadata/variable_dictionary.csv`](data/metadata/variable_dictionary.csv) for min/median/max/missingness of all 81 columns across the 4 tables, [`DATACARD.md`](DATACARD.md) for harmonization and leakage documentation, and [`croissant.json`](croissant.json) for MLCommons Croissant 1.0 metadata.
 
