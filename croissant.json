@@ -1,0 +1,191 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "dct": "http://purl.org/dc/terms/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "CONUS Soil, Plant Root, and Microbial Functional AI-Ready Database",
+  "description": "Harmonized, unit-standardized, quality-controlled geospatial point database of 15 topsoil (0-30 cm) physical and chemical properties (n = 50,116), C/N/P-degrading soil microbial enzyme gene relative abundances (n = 805), and plant root traits (belowground biomass and rooting depth from FRED and TRY) across the Contiguous United States (CONUS, EPSG:4326). Packaged in Apache Parquet, SQLite, and CF-1.8 NetCDF with unified 2x2-degree 5-fold spatial cross-validation splits.",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "version": "1.0.0",
+  "url": "https://github.com/sgautam77/MiracleAI",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "spatialCoverage": {
+    "@type": "sc:Place",
+    "name": "Contiguous United States (CONUS)",
+    "geo": {
+      "@type": "sc:GeoShape",
+      "box": "24.647205 -124.680916 49.270000 -66.986809"
+    }
+  },
+  "keywords": [
+    "soil properties",
+    "pedometrics",
+    "rooting depth",
+    "belowground biomass",
+    "soil microbiome",
+    "functional genes",
+    "spatial cross-validation",
+    "geospatial machine learning",
+    "CONUS"
+  ],
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "soil_parquet",
+      "name": "soil_properties_conus.parquet",
+      "contentUrl": "data/parquet/soil_properties_conus.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "52174de612b0810a9a976a6b9ff9012607c9777bbc8a72ef55e627789a55602d"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "microbe_parquet",
+      "name": "microbe_enzymes_harmonized.parquet",
+      "contentUrl": "data/parquet/microbe_enzymes_harmonized.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "dbfecac19815c45d09a7941937ea1eead242d601b55daec646a43f4cc3574482"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "root_biomass_parquet",
+      "name": "root_biomass_harmonized.parquet",
+      "contentUrl": "data/parquet/root_biomass_harmonized.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "93e59a46e2d82b58b0fd8364a3e5e149386dfa490e01973e923db1cbb2ccf9ec"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "root_depth_parquet",
+      "name": "root_depth_harmonized.parquet",
+      "contentUrl": "data/parquet/root_depth_harmonized.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "1b2d04d276a241381c949f26e8b871de7404f82f286fa7d8f876c10d6080479d"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "sqlite_db",
+      "name": "conus_soil_root_microbe.sqlite",
+      "contentUrl": "data/sqlite/conus_soil_root_microbe.sqlite",
+      "encodingFormat": "application/vnd.sqlite3",
+      "sha256": "8120ea353f426f6648c57f3ea45a4f702c8755590473643bf961226dbff0b09c"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "soil_properties_conus",
+      "name": "soil_properties_conus",
+      "description": "50,116 CONUS topsoil (0-30 cm) observations across 15 physical and chemical soil properties with spatial CV folds and non-destructive QC flags.",
+      "key": { "@id": "soil_properties_conus/obs_id" },
+      "field": [
+        { "@type": "cr:Field", "@id": "soil_properties_conus/obs_id", "name": "obs_id", "dataType": "sc:Integer", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "obs_id" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/site_id", "name": "site_id", "dataType": "sc:Text", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "site_id" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/latitude", "name": "latitude", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "latitude" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/longitude", "name": "longitude", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "longitude" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/spatial_cv_fold", "name": "spatial_cv_fold", "dataType": "sc:Integer", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "spatial_cv_fold" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/clay_pct", "name": "clay_pct", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "clay_pct" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/sand_pct", "name": "sand_pct", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "sand_pct" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/silt_pct", "name": "silt_pct", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "silt_pct" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/aggregate_stability_pct", "name": "aggregate_stability_pct", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "aggregate_stability_pct" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/water_retention_33kpa_pct", "name": "water_retention_33kpa_pct", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "water_retention_33kpa_pct" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/water_retention_1500kpa_pct", "name": "water_retention_1500kpa_pct", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "water_retention_1500kpa_pct" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/bulk_density_third_bar_g_cm3", "name": "bulk_density_third_bar_g_cm3", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "bulk_density_third_bar_g_cm3" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/bulk_density_oven_dry_g_cm3", "name": "bulk_density_oven_dry_g_cm3", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "bulk_density_oven_dry_g_cm3" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/total_carbon_pct", "name": "total_carbon_pct", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "total_carbon_pct" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/organic_carbon_pct", "name": "organic_carbon_pct", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "organic_carbon_pct" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/estimated_organic_carbon_pct", "name": "estimated_organic_carbon_pct", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "estimated_organic_carbon_pct" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/total_nitrogen_pct", "name": "total_nitrogen_pct", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "total_nitrogen_pct" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/cec_cmolc_kg", "name": "cec_cmolc_kg", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "cec_cmolc_kg" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/cn_ratio", "name": "cn_ratio", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "cn_ratio" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/ph", "name": "ph", "dataType": "sc:Float", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "ph" } } },
+        { "@type": "cr:Field", "@id": "soil_properties_conus/qc_any_anomaly", "name": "qc_any_anomaly", "dataType": "sc:Boolean", "source": { "fileObject": { "@id": "soil_parquet" }, "extract": { "column": "qc_any_anomaly" } } }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "microbe_enzymes_harmonized",
+      "name": "microbe_enzymes_harmonized",
+      "description": "805 unique CONUS soil sites with scaled relative abundance (0-1) of C, N, and P degrading microbial enzyme encoding genes.",
+      "key": { "@id": "microbe_enzymes_harmonized/microbe_site_idx" },
+      "field": [
+        { "@type": "cr:Field", "@id": "microbe_enzymes_harmonized/microbe_site_idx", "name": "microbe_site_idx", "dataType": "sc:Integer", "source": { "fileObject": { "@id": "microbe_parquet" }, "extract": { "column": "microbe_site_idx" } } },
+        { "@type": "cr:Field", "@id": "microbe_enzymes_harmonized/site_id", "name": "site_id", "dataType": "sc:Text", "source": { "fileObject": { "@id": "microbe_parquet" }, "extract": { "column": "site_id" } } },
+        { "@type": "cr:Field", "@id": "microbe_enzymes_harmonized/latitude", "name": "latitude", "dataType": "sc:Float", "source": { "fileObject": { "@id": "microbe_parquet" }, "extract": { "column": "latitude" } } },
+        { "@type": "cr:Field", "@id": "microbe_enzymes_harmonized/longitude", "name": "longitude", "dataType": "sc:Float", "source": { "fileObject": { "@id": "microbe_parquet" }, "extract": { "column": "longitude" } } },
+        { "@type": "cr:Field", "@id": "microbe_enzymes_harmonized/spatial_cv_fold", "name": "spatial_cv_fold", "dataType": "sc:Integer", "source": { "fileObject": { "@id": "microbe_parquet" }, "extract": { "column": "spatial_cv_fold" } } },
+        { "@type": "cr:Field", "@id": "microbe_enzymes_harmonized/c_degrading_rel_abundance", "name": "c_degrading_rel_abundance", "dataType": "sc:Float", "source": { "fileObject": { "@id": "microbe_parquet" }, "extract": { "column": "c_degrading_rel_abundance" } } },
+        { "@type": "cr:Field", "@id": "microbe_enzymes_harmonized/n_degrading_rel_abundance", "name": "n_degrading_rel_abundance", "dataType": "sc:Float", "source": { "fileObject": { "@id": "microbe_parquet" }, "extract": { "column": "n_degrading_rel_abundance" } } },
+        { "@type": "cr:Field", "@id": "microbe_enzymes_harmonized/p_degrading_rel_abundance", "name": "p_degrading_rel_abundance", "dataType": "sc:Float", "source": { "fileObject": { "@id": "microbe_parquet" }, "extract": { "column": "p_degrading_rel_abundance" } } }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "root_biomass_harmonized",
+      "name": "root_biomass_harmonized",
+      "description": "Harmonized plant belowground biomass observations (g m-2) from FRED (n = 161) and TRY (n = 95), with site deduplication flags across 173 unique sites.",
+      "key": { "@id": "root_biomass_harmonized/record_id" },
+      "field": [
+        { "@type": "cr:Field", "@id": "root_biomass_harmonized/record_id", "name": "record_id", "dataType": "sc:Integer", "source": { "fileObject": { "@id": "root_biomass_parquet" }, "extract": { "column": "record_id" } } },
+        { "@type": "cr:Field", "@id": "root_biomass_harmonized/source_database", "name": "source_database", "dataType": "sc:Text", "source": { "fileObject": { "@id": "root_biomass_parquet" }, "extract": { "column": "source_database" } } },
+        { "@type": "cr:Field", "@id": "root_biomass_harmonized/latitude", "name": "latitude", "dataType": "sc:Float", "source": { "fileObject": { "@id": "root_biomass_parquet" }, "extract": { "column": "latitude" } } },
+        { "@type": "cr:Field", "@id": "root_biomass_harmonized/longitude", "name": "longitude", "dataType": "sc:Float", "source": { "fileObject": { "@id": "root_biomass_parquet" }, "extract": { "column": "longitude" } } },
+        { "@type": "cr:Field", "@id": "root_biomass_harmonized/spatial_cv_fold", "name": "spatial_cv_fold", "dataType": "sc:Integer", "source": { "fileObject": { "@id": "root_biomass_parquet" }, "extract": { "column": "spatial_cv_fold" } } },
+        { "@type": "cr:Field", "@id": "root_biomass_harmonized/belowground_biomass_g_m2", "name": "belowground_biomass_g_m2", "dataType": "sc:Float", "source": { "fileObject": { "@id": "root_biomass_parquet" }, "extract": { "column": "belowground_biomass_g_m2" } } },
+        { "@type": "cr:Field", "@id": "root_biomass_harmonized/is_primary_site_record", "name": "is_primary_site_record", "dataType": "sc:Boolean", "source": { "fileObject": { "@id": "root_biomass_parquet" }, "extract": { "column": "is_primary_site_record" } } }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "root_depth_harmonized",
+      "name": "root_depth_harmonized",
+      "description": "Harmonized plant rooting depth observations in meters and centimeters from FRED (n = 480) and TRY (n = 582), with site deduplication flags across 596 unique valid sites.",
+      "key": { "@id": "root_depth_harmonized/record_id" },
+      "field": [
+        { "@type": "cr:Field", "@id": "root_depth_harmonized/record_id", "name": "record_id", "dataType": "sc:Integer", "source": { "fileObject": { "@id": "root_depth_parquet" }, "extract": { "column": "record_id" } } },
+        { "@type": "cr:Field", "@id": "root_depth_harmonized/source_database", "name": "source_database", "dataType": "sc:Text", "source": { "fileObject": { "@id": "root_depth_parquet" }, "extract": { "column": "source_database" } } },
+        { "@type": "cr:Field", "@id": "root_depth_harmonized/latitude", "name": "latitude", "dataType": "sc:Float", "source": { "fileObject": { "@id": "root_depth_parquet" }, "extract": { "column": "latitude" } } },
+        { "@type": "cr:Field", "@id": "root_depth_harmonized/longitude", "name": "longitude", "dataType": "sc:Float", "source": { "fileObject": { "@id": "root_depth_parquet" }, "extract": { "column": "longitude" } } },
+        { "@type": "cr:Field", "@id": "root_depth_harmonized/spatial_cv_fold", "name": "spatial_cv_fold", "dataType": "sc:Integer", "source": { "fileObject": { "@id": "root_depth_parquet" }, "extract": { "column": "spatial_cv_fold" } } },
+        { "@type": "cr:Field", "@id": "root_depth_harmonized/rooting_depth_m", "name": "rooting_depth_m", "dataType": "sc:Float", "source": { "fileObject": { "@id": "root_depth_parquet" }, "extract": { "column": "rooting_depth_m" } } },
+        { "@type": "cr:Field", "@id": "root_depth_harmonized/rooting_depth_cm", "name": "rooting_depth_cm", "dataType": "sc:Float", "source": { "fileObject": { "@id": "root_depth_parquet" }, "extract": { "column": "rooting_depth_cm" } } },
+        { "@type": "cr:Field", "@id": "root_depth_harmonized/is_primary_site_record", "name": "is_primary_site_record", "dataType": "sc:Boolean", "source": { "fileObject": { "@id": "root_depth_parquet" }, "extract": { "column": "is_primary_site_record" } } }
+      ]
+    }
+  ]
+}

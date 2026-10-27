@@ -1,0 +1,7 @@
+# Optional Python dependencies for Parquet, DataFrame, and PyTorch ML workflows
+# Note: src/loaders/python_loader.py also works with zero third-party packages via stdlib sqlite3
+pandas>=2.0.0
+pyarrow>=14.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+torch>=2.0.0

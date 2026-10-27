@@ -1,0 +1,44 @@
+Creative Commons Attribution 4.0 International (CC-BY-4.0)
+==========================================================
+
+The harmonized AI-ready datasets, metadata tables, and figures in this repository
+are made available under the Creative Commons Attribution 4.0 International
+License (https://creativecommons.org/licenses/by/4.0/).
+
+You are free to:
+  - Share: copy and redistribute the material in any medium or format.
+  - Adapt: remix, transform, and build upon the material for any purpose,
+    even commercially (including training machine learning and AI models).
+
+Under the following terms:
+  - Attribution: You must give appropriate credit to both this harmonized
+    compilation and the upstream primary observational databases listed below,
+    provide a link to the license, and indicate if changes were made.
+
+Upstream Data Source Attribution
+--------------------------------
+When publishing models, analyses, or derivative works using specific layers of
+this database, please also cite the corresponding primary data sources:
+
+1. CONUS Soil Properties (`soil_properties_conus` / `conus_variables.nc`):
+    Harmonized 0-30 cm soil physical and chemical point observations across the
+   Contiguous United States (50,116 observations compiled from master CONUS soil
+   pedon datasets; e.g., USDA-NRCS National Cooperative Soil Survey [NCSS] /
+   Rapid Carbon Assessment [RaCA] harmonized compilations).
+
+2. Fine-Root Ecology Database (`FRED`; `fred_*` records in root tables):
+   Iversen, C. M., McCormack, M. L., Powell, A. S., et al. (2017). A global
+   Fine-Root Ecology Database to address below-ground challenges in plant
+   ecology. New Phytologist, 215(1), 15-26. https://roots.ornl.gov/
+
+3. TRY Plant Trait Database (`TRY`; `try_*` records in root tables):
+   Kattge, J., Bonisch, G., Diaz, S., et al. (2020). TRY plant trait database -
+   enhanced coverage and open access. Global Change Biology, 26(1), 119-188.
+   https://www.try-db.org/ (TRY open-access data released under CC-BY).
+
+4. Soil Microbial Functional Enzyme Encoding Genes (`microbe_*` tables):
+   Scaled relative abundances (0-1) of carbon (C), nitrogen (N), and phosphorus
+   (P) degrading microbial enzyme encoding genes across 805 CONUS locations.
+
+Full Legal Text of CC-BY-4.0:
+https://creativecommons.org/licenses/by/4.0/legalcode

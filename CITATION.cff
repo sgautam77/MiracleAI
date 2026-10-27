@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "CONUS Soil, Plant Root, and Microbial Functional AI-Ready Database"
+message: "If you use this database or its ML loaders in your research, please cite this repository and the relevant upstream observational databases."
+type: dataset
+authors:
+  - family-names: "Gautam"
+    given-names: "Sagar"
+version: 1.0.0
+date-released: "2026-10-27"
+url: "https://github.com/sgautam77/MiracleAI"
+repository-code: "https://github.com/sgautam77/MiracleAI"
+license: CC-BY-4.0
+keywords:
+  - soil-science
+  - pedometrics
+  - machine-learning
+  - ai-ready-data
+  - geospatial
+  - root-traits
+  - soil-microbiome
+  - biogeochemistry
+  - conus
+  - parquet

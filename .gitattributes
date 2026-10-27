@@ -1,0 +1,9 @@
+# Normalize text line endings
+* text=auto eol=lf
+
+# Treat scientific & columnar data formats strictly as binary
+*.parquet binary
+*.nc binary
+*.sqlite binary
+*.png binary
+*.pdf binary

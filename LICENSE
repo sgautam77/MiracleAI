@@ -1,0 +1,14 @@
+DUAL LICENSE NOTICE
+===================
+
+This repository uses a standard open-science dual licensing structure separating
+data artifacts from software/loader code:
+
+1. DATA ARTIFACTS (`data/`, `figures/`, `croissant.json`, `DATACARD.md`):
+   Licensed under the Creative Commons Attribution 4.0 International License
+   (CC-BY-4.0). See `LICENSE-DATA` for full terms and upstream source
+   attribution requirements (CONUS Soil compilations, FRED, TRY, and Microbial
+   functional gene datasets).
+
+2. SOFTWARE & LOADER SCRIPTS (`src/`, `requirements.txt`):
+   Licensed under the MIT License. See `LICENSE-CODE` for full terms.

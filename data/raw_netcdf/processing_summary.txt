@@ -1,0 +1,15 @@
+================================================================
+ CONUS SOIL PROPERTIES - PROCESSING SUMMARY
+ Generated: 2026-08-28 13:38:42
+================================================================
+
+-- Dataset ------------------------------------------------------
+ Total initial obs : 51,743
+ Final CONUS obs   : 50,116
+ Applied spatial filter restricting points strictly to CONUS borders.
+
+-- Output Files -------------------------------------------------
+ Map PNG : figures/conus_observation_locations.png
+ Map PDF : figures/conus_observation_locations.pdf
+ NetCDF  : results/conus_variables.nc
+================================================================

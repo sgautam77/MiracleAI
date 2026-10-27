@@ -1,0 +1,53 @@
+{
+  "name": "CONUS Soil, Plant Root, and Microbial Functional AI-Ready Database",
+  "version": "1.0.0",
+  "generated_utc": "2026-10-27T18:38:11Z",
+  "crs": "EPSG:4326",
+  "spatial_cv": {
+    "scheme": "2.0 x 2.0 degree geographic block cross-validation",
+    "n_folds": 5,
+    "total_unique_blocks": 265,
+    "soil_obs_per_fold": {
+      "fold_1": 10023,
+      "fold_2": 10023,
+      "fold_3": 10024,
+      "fold_4": 10023,
+      "fold_5": 10023
+    }
+  },
+  "tables": {
+    "soil_properties_conus": {
+      "rows": 50116,
+      "unique_sites": 46764,
+      "qc_duplicate_coords_rows": 4466,
+      "qc_any_anomaly_rows": 398,
+      "qc_pct_gt_100_rows": 8,
+      "qc_texture_sum_out_of_range_rows": 96,
+      "qc_wr_inverted_rows": 240,
+      "qc_oc_gt_tc_rows": 66
+    },
+    "microbe_enzymes_harmonized": {
+      "rows": 805,
+      "unique_sites": 805,
+      "complete_cnp_sites": 804,
+      "qc_outside_conus_border_rows": 0
+    },
+    "root_biomass_harmonized": {
+      "rows": 256,
+      "fred_rows": 161,
+      "try_rows": 95,
+      "unique_primary_sites": 173,
+      "shared_fred_try_rows": 165,
+      "qc_outside_conus_border_rows": 10
+    },
+    "root_depth_harmonized": {
+      "rows": 1062,
+      "fred_rows": 480,
+      "try_rows": 582,
+      "unique_primary_sites": 596,
+      "missing_value_rows": 1,
+      "shared_fred_try_rows": 930,
+      "qc_outside_conus_border_rows": 73
+    }
+  }
+}
